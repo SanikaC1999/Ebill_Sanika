@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./images/logo.webp" type="image/x-icon">
+    <style>
+        .equal-height-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            background-color: antiquewhite;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .img-container, .form-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .img-container {
+            max-width: 100%;
+            max-height: 100%;
+            overflow: hidden;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        @media (max-width: 768px) {
+            .equal-height-container {
+                flex-direction: column;
+            }
+            .img-container, .form-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body style="background-image: url(./images/background.webp);">
+    <!-- Header Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: aqua;">
+        <div>
+            <img src="./images/logo.webp" alt="Ebill logo" height="50px" width="60px">
+            <a class="navbar-brand" href="#">EBILL</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./homePage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback</a>
+                </li>                    
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help & Support</a>
+                </li>   
+                <li class="nav-item">
+                    <a class="nav-link" href="./Register.html">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="equal-height-container">
+            <div class="img-container img-fluid">
+                <img src="./images/features.webp" alt="Displaying features">
+            </div>
+            <!-- Login Form -->
+            <div class="form-container">
+                <h2 class="text-center">Login Here</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginMethod">Select Login Method</label>
+                        <select class="form-control" id="loginMethod">
+                            <option value="password">Login with Password</option>
+                            <option value="otp">Login with OTP</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="passwordGroup">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group" id="otpGroup" style="display: none;">
+                        <button type="button" class="btn btn-primary mb-3" id="sendOtpButton">Send OTP</button>
+                        <label for="otp">OTP</label>
+                        <input type="text" class="form-control" id="otp" name="otp">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+                <h6 class="mt-4">Don't have an account? <a href="./Register.html">Register here</a></h6>
+            </div>
+        </div>
+    </div>
+    
+
+        <!-- Feedback Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                    <label for="feedbackEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="feedbackEmail" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                    <label for="feedbackMessage" class="form-label">Your Feedback</label>
+                    <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Enter your feedback here"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <!-- Help & Support Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="helpModalLabel">Help & Support</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="helpEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="helpEmail" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="helpMessage" class="form-label">Describe Your Issue</label>
+                            <textarea class="form-control" id="helpMessage" rows="3" placeholder="Enter your issue here"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginMethod').addEventListener('change', function() {
+            var loginMethod = this.value;
+            if (loginMethod === 'password') {
+                document.getElementById('passwordGroup').style.display = 'block';
+                document.getElementById('otpGroup').style.display = 'none';
+            } else {
+                document.getElementById('passwordGroup').style.display = 'none';
+                document.getElementById('otpGroup').style.display = 'block';
+            }
+        });
+
+        document.getElementById('sendOtpButton').addEventListener('click', function() {
+            alert('OTP sent! (Temporary OTP is 1234)');
+            document.getElementById('otp').value = '';
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById('username').value;
+            var loginMethod = document.getElementById('loginMethod').value;
+            
+            if (loginMethod === 'password') {
+                var password = document.getElementById('password').value;
+                var storedUsername = localStorage.getItem('username');
+                var storedPassword = localStorage.getItem('password');
+                
+                if (username === storedUsername && password === storedPassword) {
+                    alert("Login successful!");
+                    window.location.href = './homePage1.html';
+                } else {
+                    alert("Invalid username or password!");
+                }
+            } else {
+                var otp = document.getElementById('otp').value;
+                if (otp === '1234') {
+                    alert("Login successful!");
+                    window.location.href = './homePage1.html';
+                } else {
+                    alert("Invalid OTP!");
+                }
+            }
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

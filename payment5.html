@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Application</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./images/logo.webp" type="image/x-icon">
+    <style>
+        .equal-height-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+        }
+        .img-container, .form-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+        }
+        .header-container img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body style="background-image: url(./images/background.webp);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo.webp" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                EBill
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbarLinks">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./homePage1.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help & Support</a>
+                    </li>   
+                    <li class="nav-item" id="registerLink">
+                        <a class="nav-link" href="./Register.html">Registration</a>
+                    </li>
+                    <li class="nav-item" id="loginLink">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="equal-height-container">
+            <!-- Prepaid Electricity Recharge Form -->
+            <div class="form-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-receipt-cutoff" viewBox="0 0 16 16">
+                    <path d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5M11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                    <path d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118z"/>
+                  </svg>
+                <h2 class="mb-4 text-center">Prepaid Electricity Recharge</h2>
+                <form id="rechargeForm">
+                    <div class="form-row">
+                        <!-- Account Details -->
+                        <div class="form-group">
+                            <label for="accountNumber">Account Number / Meter Number</label>
+                            <input type="text" class="form-control" id="accountNumber" name="accountNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="customerName">Customer Name</label>
+                            <input type="text" class="form-control" id="customerName" name="customerName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <!-- Personal Information -->
+                        <div class="form-group">
+                            <label for="phoneNumber">Phone Number</label>
+                            <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="email" class="form-control" id="emailAddress" name="emailAddress">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <!-- Payment Information -->
+                        <div class="form-group">
+                            <label for="rechargeAmount">Recharge Amount</label>
+                            <input type="number" class="form-control" id="rechargeAmount" name="rechargeAmount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="paymentMethod">Payment Method</label>
+                            <select class="form-control" id="paymentMethod" name="paymentMethod" required>
+                                <option value="creditCard">Credit Card</option>
+                                <option value="debitCard">Debit Card</option>
+                                <option value="netBanking">Net Banking</option>
+                                <option value="upi">UPI</option>
+                                <option value="lazyPay">LazyPay</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="cardInfo" class="form-row" style="display: none;">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <input type="text" class="form-control" id="cardNumber" name="cardNumber">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardExpiry">Expiry Date</label>
+                            <input type="month" class="form-control" id="cardExpiry" name="cardExpiry">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCVV">CVV</label>
+                            <input type="text" class="form-control" id="cardCVV" name="cardCVV">
+                        </div>
+                    </div>
+                    <div id="upiInfo" class="form-row" style="display: none;">
+                        <div class="form-group">
+                            <label for="upiId">UPI ID</label>
+                            <input type="text" class="form-control" id="upiId" name="upiId">
+                        </div>
+                    </div>
+                    <div id="lazyPayInfo" class="form-row" style="display: none;">
+                        <div class="form-group">
+                            <label for="lazyPayId">LazyPay ID</label>
+                            <input type="text" class="form-control" id="lazyPayId" name="lazyPayId">
+                        </div>
+                    </div>
+                    <div id="netBankingInfo" class="form-row" style="display: none;">
+                        <div class="form-group">
+                            <label for="bankSelect">Select Bank</label>
+                            <select class="form-control" id="bankSelect" name="bankSelect">
+                                <option value="bank1">Bank 1</option>
+                                <option value="bank2">Bank 2</option>
+                                <option value="bank3">Bank 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success mt-3">Submit Payment</button>
+                </form>
+            </div>
+            
+            <script>
+                document.getElementById('paymentMethod').addEventListener('change', function () {
+                    const cardInfo = document.getElementById('cardInfo');
+                    const upiInfo = document.getElementById('upiInfo');
+                    const lazyPayInfo = document.getElementById('lazyPayInfo');
+                    const netBankingInfo = document.getElementById('netBankingInfo');
+                    
+                    cardInfo.style.display = 'none';
+                    upiInfo.style.display = 'none';
+                    lazyPayInfo.style.display = 'none';
+                    netBankingInfo.style.display = 'none';
+                    
+                    if (this.value === 'creditCard' || this.value === 'debitCard') {
+                        cardInfo.style.display = 'flex';
+                    } else if (this.value === 'upi') {
+                        upiInfo.style.display = 'flex';
+                    } else if (this.value === 'lazyPay') {
+                        lazyPayInfo.style.display = 'flex';
+                    } else if (this.value === 'netBanking') {
+                        netBankingInfo.style.display = 'flex';
+                    }
+                });
+            </script>
+        </div>
+    </div>
+
+        <!-- Feedback Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                    <label for="feedbackEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="feedbackEmail" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                    <label for="feedbackMessage" class="form-label">Your Feedback</label>
+                    <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Enter your feedback here"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <!-- Help & Support Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="helpModalLabel">Help & Support</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                <label for="helpEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="helpEmail" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                <label for="helpMessage" class="form-label">Describe Your Issue</label>
+                <textarea class="form-control" id="helpMessage" rows="3" placeholder="Enter your issue here"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('username');
+
+            if (username) {
+                document.getElementById('registerLink').remove();
+                document.getElementById('loginLink').remove();
+
+                const navbarLinks = document.getElementById('navbarLinks');
+                const userLink = document.createElement('li');
+                userLink.className = 'nav-item';
+                userLink.innerHTML = `<a class="nav-link" href="#">${username}</a>`;
+                navbarLinks.appendChild(userLink);
+
+                const logoutLink = document.createElement('li');
+                logoutLink.className = 'nav-item';
+                logoutLink.innerHTML = '<a class="nav-link" href="#" id="logoutLink">Logout</a>';
+                navbarLinks.appendChild(logoutLink);
+
+                document.getElementById('logoutLink').addEventListener('click', () => {
+                    localStorage.removeItem('username');
+                    window.location.href = 'homepage.html'; // Change to the URL of your different homepage
+                });
+            }
+        });
+    </script>
+</body>
+</html>

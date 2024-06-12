@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Connection Closure</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./images/logo.webp" type="image/x-icon">
+    <style>
+        .equal-height-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+        }
+        .img-container, .form-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+        }
+        .header-container img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body style="background-image: url(./images/background.webp);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo.webp" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                EBill
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbarLinks">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./homePage1.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help & Support</a>
+                    </li>  
+                    <li class="nav-item" id="registerLink">
+                        <a class="nav-link" href="./Register.html">Registration</a>
+                    </li>
+                    <li class="nav-item" id="loginLink">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="equal-height-container">
+            <!-- Close Electricity Connection Form -->
+            <div class="form-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-wallet" viewBox="0 0 16 16">
+                    <path d="M0 3a2 2 0 0 1 2-2h13.5a.5.5 0 0 1 0 1H15v2a1 1 0 0 1 1 1v8.5a1.5 1.5 0 0 1-1.5 1.5h-12A2.5 2.5 0 0 1 0 12.5zm1 1.732V12.5A1.5 1.5 0 0 0 2.5 14h12a.5.5 0 0 0 .5-.5V5H2a2 2 0 0 1-1-.268M1 3a1 1 0 0 0 1 1h12V2H2a1 1 0 0 0-1 1"/>
+                  </svg>
+                <h2 class="mb-4">Sell Prepaid Electricity Form</h2>
+                <form action="/sell-electricity" method="post">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="sellerName" class="form-label">Seller Name</label>
+                            <input type="text" class="form-control" id="sellerName" name="sellerName" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="meterNumber" class="form-label">Meter Number</label>
+                            <input type="text" class="form-control" id="meterNumber" name="meterNumber" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="amount" class="form-label">Amount (in currency)</label>
+                            <input type="number" class="form-control" id="amount" name="amount" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="units" class="form-label">Units (kWh)</label>
+                            <input type="number" class="form-control" id="units" name="units" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="buyerEmail" class="form-label">Buyer Email</label>
+                            <input type="email" class="form-control" id="buyerEmail" name="buyerEmail" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="paymentMethod" class="form-label">Payment Method</label>
+                            <select class="form-select" id="paymentMethod" name="paymentMethod" required>
+                                <option value="" selected disabled>Select payment method</option>
+                                <option value="creditCard">Credit Card</option>
+                                <option value="debitCard">Debit Card</option>
+                                <option value="mobileMoney">Mobile Money</option>
+                                <option value="bankTransfer">Bank Transfer</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sell Electricity</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+        <!-- Feedback Modal -->
+        <div class="modal fade" id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="feedbackModalLabel">Feedback</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                    <label for="feedbackEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="feedbackEmail" placeholder="name@example.com">
+                    </div>
+                    <div class="mb-3">
+                    <label for="feedbackMessage" class="form-label">Your Feedback</label>
+                    <textarea class="form-control" id="feedbackMessage" rows="3" placeholder="Enter your feedback here"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    <!-- Help & Support Modal -->
+    <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="helpModalLabel">Help & Support</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                <label for="helpEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="helpEmail" placeholder="name@example.com">
+                </div>
+                <div class="mb-3">
+                <label for="helpMessage" class="form-label">Describe Your Issue</label>
+                <textarea class="form-control" id="helpMessage" rows="3" placeholder="Enter your issue here"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('username');
+
+            if (username) {
+                document.getElementById('registerLink').remove();
+                document.getElementById('loginLink').remove();
+
+                const navbarLinks = document.getElementById('navbarLinks');
+                const userLink = document.createElement('li');
+                userLink.className = 'nav-item';
+                userLink.innerHTML = `<a class="nav-link" href="#">${username}</a>`;
+                navbarLinks.appendChild(userLink);
+
+                const logoutLink = document.createElement('li');
+                logoutLink.className = 'nav-item';
+                logoutLink.innerHTML = '<a class="nav-link" href="#" id="logoutLink">Logout</a>';
+                navbarLinks.appendChild(logoutLink);
+
+                document.getElementById('logoutLink').addEventListener('click', () => {
+                    localStorage.removeItem('username');
+                    window.location.href = 'homepage.html'; // Change to the URL of your different homepage
+                });
+            }
+        });
+    </script>
+</body>
+</html>

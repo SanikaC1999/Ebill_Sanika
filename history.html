@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Application</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./images/logo.webp" type="image/x-icon">
+    <style>
+        .equal-height-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+        }
+        .img-container, .form-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+        }
+        .header-container img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body style="background-image: url(./images/background.webp);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo.webp" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                EBill
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbarLinks">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./homePage1.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#feedbackModal">Feedback</a>
+                    </li>                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#helpModal">Help & Support</a>
+                    </li>   
+                    <li class="nav-item" id="registerLink">
+                        <a class="nav-link" href="./Register.html">Registration</a>
+                    </li>
+                    <li class="nav-item" id="loginLink">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <h1 class="mb-4 text-center">Bill Payment History</h1>
+        <div class="equal-height-container p-4">
+            <div class="row mb-3 justify-content-around">
+                <div class="col-md-3 d-flex align-items-center mb-3">
+                    <label for="monthFilter" class="form-label me-2">Month</label>
+                    <select id="monthFilter" class="form-select">
+                        <option value="">All</option>
+                        <option value="January">January</option>
+                        <option value="February">February</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-center mb-3">
+                    <label for="yearFilter" class="form-label me-2">Year</label>
+                    <select id="yearFilter" class="form-select">
+                        <option value="">All</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex align-items-center mb-3">
+                    <label for="typeFilter" class="form-label me-5">Type</label>
+                    <select id="typeFilter" class="form-select">
+                        <option value="">All</option>
+                        <option value="Prepaid">Prepaid</option>
+                        <option value="Postpaid">Postpaid</option>
+                    </select>
+                </div>
+            </div>
+            
+            
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Date</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Type</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentHistory">
+                        <!-- Hardcoded entries -->
+                        <tr data-month="January" data-year="2024" data-type="Prepaid">
+                            <td>01/01/2024</td>
+                            <td>$100</td>
+                            <td>Prepaid</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr data-month="February" data-year="2024" data-type="Postpaid">
+                            <td>01/02/2024</td>
+                            <td>$200</td>
+                            <td>Postpaid</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                        <!-- Add 18 more entries here -->
+                        <!-- Sample Entries -->
+                        <tr data-month="March" data-year="2024" data-type="Prepaid">
+                            <td>01/03/2024</td>
+                            <td>$150</td>
+                            <td>Prepaid</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr data-month="April" data-year="2024" data-type="Postpaid">
+                            <td>01/04/2024</td>
+                            <td>$250</td>
+                            <td>Postpaid</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                        <tr data-month="May" data-year="2024" data-type="Prepaid">
+                            <td>01/05/2024</td>
+                            <td>$100</td>
+                            <td>Prepaid</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr data-month="June" data-year="2024" data-type="Postpaid">
+                            <td>01/06/2024</td>
+                            <td>$300</td>
+                            <td>Postpaid</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                        <tr data-month="July" data-year="2024" data-type="Prepaid">
+                            <td>01/07/2024</td>
+                            <td>$200</td>
+                            <td>Prepaid</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr data-month="August" data-year="2024" data-type="Postpaid">
+                            <td>01/08/2024</td>
+                            <td>$150</td>
+                            <td>Postpaid</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                        <tr data-month="September" data-year="2024" data-type="Prepaid">
+                            <td>01/09/2024</td>
+                            <td>$200</td>
+                            <td>Prepaid</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr data-month="October" data-year="2024" data-type="Postpaid">
+                            <td>01/10/2024</td>
+                            <td>$250</td>
+                            <td>Postpaid</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                        <tr data-month="November" data-year="2024" data-type="Prepaid">
+                            <td>01/11/2024</td>
+                            <td>$100</td>
+                            <td>Prepaid</td>
+                            <td><span class="badge badge-success">Completed</span></td>
+                        </tr>
+                        <tr data-month="December" data-year="2024" data-type="Postpaid">
+                            <td>01/12/2024</td>
+                            <td>$200</td>
+                            <td>Postpaid</td>
+                            <td><span class="badge badge-warning">Pending</span></td>
+                        </tr>
+                        <!-- Continue adding entries as needed -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('username');
+
+            if (username) {
+                document.getElementById('registerLink').remove();
+                document.getElementById('loginLink').remove();
+
+                const navbarLinks = document.getElementById('navbarLinks');
+                const userLink = document.createElement('li');
+                userLink.className = 'nav-item';
+                userLink.innerHTML = `<a class="nav-link" href="#">${username}</a>`;
+                navbarLinks.appendChild(userLink);
+
+                const logoutLink = document.createElement('li');
+                logoutLink.className = 'nav-item';
+                logoutLink.innerHTML = '<a class="nav-link" href="#" id="logoutLink">Logout</a>';
+                navbarLinks.appendChild(logoutLink);
+
+                document.getElementById('logoutLink').addEventListener('click', () => {
+                    localStorage.removeItem('username');
+                    window.location.href = 'homepage.html'; // Change to the URL of your different homepage
+                });
+            }
+        });
+    </script>
+    <script>
+        document.getElementById('monthFilter').addEventListener('change', filterTable);
+        document.getElementById('yearFilter').addEventListener('change', filterTable);
+        document.getElementById('typeFilter').addEventListener('change', filterTable);
+
+        function filterTable() {
+            const month = document.getElementById('monthFilter').value;
+            const year = document.getElementById('yearFilter').value;
+            const type = document.getElementById('typeFilter').value;
+            const rows = document.querySelectorAll('#paymentHistory tr');
+
+            rows.forEach(row => {
+                const rowMonth = row.getAttribute('data-month');
+                const rowYear = row.getAttribute('data-year');
+                const rowType = row.getAttribute('data-type');
+                
+                const monthMatch = !month || rowMonth === month;
+                const yearMatch = !year || rowYear === year;
+                const typeMatch = !type || rowType === type;
+                
+                if (monthMatch && yearMatch && typeMatch) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

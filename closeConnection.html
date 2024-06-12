@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Connection Closure</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./images/logo.webp" type="image/x-icon">
+    <style>
+        .equal-height-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: antiquewhite;
+        }
+        .img-container, .form-container {
+            flex: 1;
+            padding: 20px;
+        }
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+        }
+        .header-container img {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body style="background-image: url(./images/background.webp);">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./images/logo.webp" alt="" width="50" height="50" class="d-inline-block align-text-top">
+                EBill
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbarLinks">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./homePage1.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Feedback</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Help & Support</a>
+                    </li>
+                    <li class="nav-item" id="registerLink">
+                        <a class="nav-link" href="./Register.html">Registration</a>
+                    </li>
+                    <li class="nav-item" id="loginLink">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="equal-height-container">
+            <!-- Close Electricity Connection Form -->
+            <div class="form-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-speedometer" viewBox="0 0 16 16">
+                    <path d="M8 2a.5.5 0 0 1 .5.5V4a.5.5 0 0 1-1 0V2.5A.5.5 0 0 1 8 2M3.732 3.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 8a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 8m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 7.31A.91.91 0 1 0 8.85 8.569l3.434-4.297a.39.39 0 0 0-.029-.518z"/>
+                    <path fill-rule="evenodd" d="M6.664 15.889A8 8 0 1 1 9.336.11a8 8 0 0 1-2.672 15.78zm-4.665-4.283A11.95 11.95 0 0 1 8 10c2.186 0 4.236.585 6.001 1.606a7 7 0 1 0-12.002 0"/>
+                </svg>
+                <h2 class="mb-4 text-center">Electricity Connection Closure</h2>
+                <form action="submit_close_connection.php" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="fullName" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="customerId" class="form-label">Customer ID/Account Number</label>
+                            <input type="text" class="form-control" id="customerId" name="customerId" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="serviceAddress" class="form-label">Service Address</label>
+                            <textarea class="form-control" id="serviceAddress" name="serviceAddress" rows="2" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="meterNumber" class="form-label">Meter Number</label>
+                            <input type="text" class="form-control" id="meterNumber" name="meterNumber" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="lastMeterReading" class="form-label">Last Meter Reading</label>
+                            <input type="number" class="form-control" id="lastMeterReading" name="lastMeterReading" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="closureDate" class="form-label">Closure Date</label>
+                            <input type="date" class="form-control" id="closureDate" name="closureDate" required>
+                        </div>
+                        <div class="form-group col-md6">
+                            <label for="closureReason" class="form-label">Reason for Closure</label>
+                            <select class="form-select" id="closureReason" name="closureReason" required>
+                                <option value="">Select a reason</option>
+                                <option value="moving">Moving</option>
+                                <option value="switching">Switching Provider</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="forwardingAddress" class="form-label">Forwarding Address</label>
+                            <textarea class="form-control" id="forwardingAddress" name="forwardingAddress" rows="2" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="comments" class="form-label">Comments/Additional Requests</label>
+                            <textarea class="form-control" id="comments" name="comments" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="declaration" name="declaration" required>
+                                <label class="form-check-label" for="declaration">
+                                    I agree to the terms and conditions of the closure
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const username = localStorage.getItem('username');
+
+            if (username) {
+                document.getElementById('registerLink').remove();
+                document.getElementById('loginLink').remove();
+
+                const navbarLinks = document.getElementById('navbarLinks');
+                const userLink = document.createElement('li');
+                userLink.className = 'nav-item';
+                userLink.innerHTML = `<a class="nav-link" href="#">${username}</a>`;
+                navbarLinks.appendChild(userLink);
+
+                const logoutLink = document.createElement('li');
+                logoutLink.className = 'nav-item';
+                logoutLink.innerHTML = '<a class="nav-link" href="#" id="logoutLink">Logout</a>';
+                navbarLinks.appendChild(logoutLink);
+
+                document.getElementById('logoutLink').addEventListener('click', () => {
+                    localStorage.removeItem('username');
+                    window.location.href = 'homepage.html'; // Change to the URL of your different homepage
+                });
+            }
+        });
+    </script>
+</body>
+</html>
